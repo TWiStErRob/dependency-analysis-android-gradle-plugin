@@ -32,7 +32,7 @@ internal object GradleVersions {
   val isAtLeastGradle88: Boolean = current >= gradle88
 
   /**
-   * Using [GradleVersion.baseVersion] to make sure it works with `8.11.0-rcX` versions too.
+   * Using [GradleVersion.baseVersion] to make sure it works with `8.11-rc-N` versions too.
    */
   val isAtLeastGradle811: Boolean = current.baseVersion >= gradle811
 }
