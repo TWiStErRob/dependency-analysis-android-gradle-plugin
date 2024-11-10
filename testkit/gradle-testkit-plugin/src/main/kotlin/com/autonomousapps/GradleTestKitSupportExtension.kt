@@ -3,6 +3,7 @@
 package com.autonomousapps
 
 import com.autonomousapps.internal.capitalizeSafely
+import com.autonomousapps.internal.pathCompat
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.artifacts.ProjectDependency
@@ -208,8 +209,8 @@ public abstract class GradleTestKitSupportExtension(private val project: Project
     return configurations.findByName(classpath)?.allDependencies
       ?.filterIsInstance<ProjectDependency>()
       // filter out self-dependency
-      ?.filterNot { it.path == project.path }
-      ?.map { "${it.path}:$taskName" }
+      ?.filterNot { it.pathCompat == project.path }
+      ?.map { "${it.pathCompat}:$taskName" }
   }
 
   /**
