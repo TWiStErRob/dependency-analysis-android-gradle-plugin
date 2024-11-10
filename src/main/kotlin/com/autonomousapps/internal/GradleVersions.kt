@@ -12,6 +12,7 @@ internal object GradleVersions {
   private val gradle83: GradleVersion = GradleVersion.version("8.3")
   private val gradle85: GradleVersion = GradleVersion.version("8.5")
   private val gradle88: GradleVersion = GradleVersion.version("8.8")
+  private val gradle811: GradleVersion = GradleVersion.version("8.11")
 
   /** Minimum supported version of Gradle. */
   @JvmField val minGradleVersion: GradleVersion = gradle74
@@ -29,4 +30,9 @@ internal object GradleVersions {
    * lifecycle callbacks.
    */
   val isAtLeastGradle88: Boolean = current >= gradle88
+
+  /**
+   * Using [GradleVersion.baseVersion] to make sure it works with `8.11-rc-N` versions too.
+   */
+  val isAtLeastGradle811: Boolean = current.baseVersion >= gradle811
 }
